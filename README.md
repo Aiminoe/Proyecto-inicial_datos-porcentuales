@@ -21,3 +21,4 @@ Version 1.0
 # Diagrama de flujo
 
 
+![diagrama de flujo](/imagenes/.jpg)
