@@ -21,4 +21,4 @@ Version 1.0
 # Diagrama de flujo
 
 
-![diagrama de flujo](/images/proyecto inicial diagrama de flujo.drawio.png.jpg)
+![diagrama de flujo](/images/proyecto inicial diagrama de flujo.drawio.png)
