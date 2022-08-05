@@ -5,15 +5,14 @@ from ast import While
 import csv
 from tkinter import W
 
-#funcion_1 la idea es realizar una funcion que logre filtrar el ingreso por comando, haciendo coincidir en el diccionario
-#las dos opciones seleccionadas por el usuario y hacer una sumatoria de un tercer valor
-#Me falta completar la funcio para validar los datos que ingreso el usuario
+#funcion para abrir archivo csv
 
 def archivo_csv():
     with open ("origen_y_destinos_visitados.csv") as csvfile:
             data = list(csv.DictReader(csvfile))
     return data
 
+#funcion para extender la lista de paises de origen y dar entrada a la seleccion del usuario
     
 def origen_1():
         print('''Seleccione un pais de residencia: 
@@ -28,8 +27,10 @@ def origen_1():
             Resto América
             Para Finalizar indique FIN''')
         residencia = input()
+        print()
         return residencia
-   
+
+#funcion para extender la lista de provincias de destino y dar entrada ala seleccion del usuario   
 
 def destino_1():
         print(''' Selecione la provincia de destino
@@ -60,29 +61,31 @@ def destino_1():
             Tucuman
             ''')
         destino = input()
+        print()
         return destino
 
 
 
 
+#funcion para filtrar datos sobre el pais de residencia de turista seleccionado por el usuario, creando una lista
 
-def filtro_residencia(residencia):
-        
+def filtro_residencia(residencia):    
     data = archivo_csv()
-    
+    lista_residencia = []
     try:    
         for i in range(len(data)):
             diccionario = data[i]
             for k,v in diccionario.items():
-                if k == ("pais_de_residencia") and v == residencia: 
-                    lista_residencia = []
-                    lista_residencia.append(diccionario)
+                if k == ("pais_de_residencia") and v == residencia:     
+                   lista_residencia.append(diccionario)
 
     except:
             pass
     return lista_residencia
 
 
+#funcion para filtrar datos sobre la provincia de recidencia visitada, seleccionada por el usuario. Se utiliza
+#la lista anteriormente creada en la funcion filtro_residencia
 
 def filtro_destino(destino, residencia):
     lista= filtro_residencia(residencia)
@@ -90,73 +93,86 @@ def filtro_destino(destino, residencia):
     try:    
         for i in range(len(lista)):
             filtro_2 = lista[i]
-        for k,v in filtro_2.items():
-            if k == ("provincia_de_destino") and v == destino: 
-                lista_destino.append(filtro_2)
+            for k,v in filtro_2.items():
+                if k == ("provincia_de_destino") and v == destino: 
+                    lista_destino.append(filtro_2)
     except:
             pass
     return lista_destino
 
 
+#funcion que realiza una sumatoria de la cantidad de turistas (de origen seleccionado por el usuario), que visito
+#la provincia argentina (seleccionada por el usuario)
 
-def funcion_sumatoria(destino):
-    lista = filtro_destino(destino)
+def funcion_sumatoria(destino,residencia):
+    lista = filtro_destino(destino,residencia)
     sumatoria = 0
     try:    
         for i in range(len(lista)):
             diccionario = lista[i]
-        for k,v in diccionario.items():
-            if k == "turistas_no_residentes":  
-                sumatoria += int(v)
+            for k,v in diccionario.items():
+                if k == "turistas_no_residentes":  
+                    sumatoria += int(v)
     except:
         pass
     return sumatoria
                                  
-#funcion_2 la idea de esta funcion es sumar todos los residentes elegido por el usuario para poder hacer la cuenta
-#y poder calcular el promedio con el numero que retorna la funcion_1
+#esta funcion suma todos los residentes elegido por el usuario para poder hacer la operacion
+#y poder calcular el promedio con el numero que retorna la funcion_sumatoria
 
-def promedio_origen():
-    data = archivo_csv()
+def promedio_origen(residencia):
+    lista = filtro_residencia(residencia)
     promedio_suma = 0
-    destino = destino_1()
     try:    
-        for i in range(len(data)):
-            diccionario = data[i]
+        for i in range(len(lista)):
+            diccionario = lista[i]
             for k,v in diccionario.items():
-                if v == destino:
+                if v == residencia:
                     for k,v in diccionario.items():
                         if k == "turistas_no_residentes":  
                             promedio_suma += int(v)        
     except:
             pass                  
-            return promedio_suma
+    return promedio_suma
 
-    #funcion promedio la idea es realizar en esta funcion el calculo matematico que me arroje el promedio de turistas elejido
+    #funcion promedio realiza el calculo matematico resultando del promedio de turistas
     #elejido por el usuario que visito la provincia elejida por el usuario
 
 def promedio(destino, residencia):
-        numero_1 = int(funcion_sumatoria(destino))
-        numero_2 = int(promedio_origen())
+        numero_1 = int(funcion_sumatoria(destino,residencia))
+        numero_2 = int(promedio_origen(residencia))
         promedio = int(numero_1 * 100) / int(numero_2)
         
-        print("{}% es el promedio de turistas que visito la provincia de {}, cuyo pais de origen es {} ".format(promedio,destino, residencia)) 
-
+        print('''{}% es el promedio de turistas,cuyo pais de origen es {}, que visitaron la proviancia de {} 
+        desde el comienzo del año 2022 hasta el mes de Mayo \n'''.format(round(promedio,2), residencia,destino)) 
 
 
 
 if __name__ == '__main__':
     print("Bienvenido")
-        
-    origen_1()
+    
+    lugar_origen = ''
+    
+    while lugar_origen.upper() != 'FIN':
 
-    destino_1()
+        lugar_origen = origen_1()
 
-    filtro_residencia()
+        if lugar_origen.upper() != 'FIN':
+           
+            provincia_destino = destino_1()
 
-    filtro_destino()
+            filtro_residencia((lugar_origen))
 
-    funcion_sumatoria()
+            filtro_destino((provincia_destino),(lugar_origen))
 
-    promedio()
+            funcion_sumatoria((provincia_destino),(lugar_origen))
+
+            promedio_origen(lugar_origen)
+
+            promedio((provincia_destino),(lugar_origen))
+                      
+
+            print('Fin del programa.\n')    
+    
             
             
