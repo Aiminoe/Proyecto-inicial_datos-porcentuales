@@ -9,7 +9,42 @@ El proyecto consta de establecer datos porcentuales sobre turistas que visitaron
 * Motivo de la visita al pais
 * Linea de tiempo en la cual se realizo la visita al pais
 Por enumerar son algunos de los aspectos que se prentenden anaizar en el desarrollo, sin embargo, esta estapa del proyecyo se va a centrar en los primeros dos items mencionados.
-
+Los paises de destino que nos brinda los datos son:  
+                                                    Brasil
+                                                    Chile
+                                                    Bolivia
+                                                    Uruguay
+                                                    Paraguay
+                                                    Europa
+                                                    Resto del mundo
+                                                    EE.UU y Canada
+                                                    Resto América
+Mientras que las provincias de residensia que nos provee el archivo csv son:  
+                                                                              Buenos Aires
+                                                                              Caba
+                                                                              Cordoba
+                                                                              Catamarca
+                                                                              Chaco
+                                                                              Chubut
+                                                                              Corrientes
+                                                                              Entre Rios
+                                                                              Formosa
+                                                                              Jujuy
+                                                                              La Pampa
+                                                                              Formosa
+                                                                              La Rioja
+                                                                              Mendoza
+                                                                              Misiones
+                                                                              Neuquen
+                                                                              Rio Negro
+                                                                              Salta
+                                                                              San Juan
+                                                                              San Luis
+                                                                              Santa Cruz
+                                                                              Santa Fe
+                                                                              Santiago del Estero
+                                                                              Tierra del Fuego
+                                                                              Tucuman
 El proyecto esta destinado a la obtencion de datos para la toma de decisiones relacionadas a inversiones, empleo, gobierno, negocios, comercio exterior, estudios de la ciencia del hombre, etc.
 
 # Fuente
@@ -21,4 +56,4 @@ Version 1.0
 # Diagrama de flujo
 
 
-![diagrama de flujo](/images/proyecto inicial diagrama de flujo.drawio.png)
+![diagrama de flujo](/images/diagrama_de_flujo.drawio.png)
