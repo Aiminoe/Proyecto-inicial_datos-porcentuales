@@ -19,6 +19,7 @@ Los paises de destino que nos brinda los datos son:
                                                     Resto del mundo
                                                     EE.UU y Canada
                                                     Resto América
+                                                    
 Mientras que las provincias de residensia que nos provee el archivo csv son:  
                                                                               Buenos Aires
                                                                               Caba
