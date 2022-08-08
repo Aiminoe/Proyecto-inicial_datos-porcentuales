@@ -11,42 +11,42 @@ El proyecto consta de establecer datos porcentuales sobre turistas que visitaron
 Por enumerar son algunos de los aspectos que se prentenden anaizar en el desarrollo, sin embargo, esta estapa del proyecyo se va a centrar en los primeros dos items mencionados.
 
 Los paises de destino que nos brinda los datos son:  
-                                                    Brasil
-                                                    Chile
-                                                    Bolivia
-                                                    Uruguay
-                                                    Paraguay
-                                                    Europa
-                                                    Resto del mundo
-                                                    EE.UU y Canada
-                                                    Resto América
+                                                    Brasil,
+                                                    Chile,
+                                                    Bolivia,
+                                                    Uruguay,
+                                                    Paraguay,
+                                                    Europa,
+                                                    Resto del mundo,
+                                                    EE.UU y Canada,
+                                                    Resto América.
                                                     
 Mientras que las provincias de residensia que nos provee el archivo csv son:  
-                                                                              Buenos Aires
-                                                                              Caba
-                                                                              Cordoba
-                                                                              Catamarca
-                                                                              Chaco
-                                                                              Chubut
-                                                                              Corrientes
-                                                                              Entre Rios
-                                                                              Formosa
-                                                                              Jujuy
-                                                                              La Pampa
-                                                                              Formosa
-                                                                              La Rioja
-                                                                              Mendoza
-                                                                              Misiones
-                                                                              Neuquen
-                                                                              Rio Negro
-                                                                              Salta
-                                                                              San Juan
-                                                                              San Luis
-                                                                              Santa Cruz
-                                                                              Santa Fe
-                                                                              Santiago del Estero
-                                                                              Tierra del Fuego
-                                                                              Tucuman
+                                                                              Buenos Aires,
+                                                                              Caba,
+                                                                              Cordoba,
+                                                                              Catamarca,
+                                                                              Chaco,
+                                                                              Chubut,
+                                                                              Corrientes,
+                                                                              Entre Rios,
+                                                                              Formosa,
+                                                                              Jujuy,
+                                                                              La Pampa,
+                                                                              Formosa,
+                                                                              La Rioja,
+                                                                              Mendoza,
+                                                                              Misiones,
+                                                                              Neuquen,
+                                                                              Rio Negro,
+                                                                              Salta,
+                                                                              San Juan,
+                                                                              San Luis,
+                                                                              Santa Cruz,
+                                                                              Santa Fe,
+                                                                              Santiago del Estero,
+                                                                              Tierra del Fuego,
+                                                                              Tucuman.
 El proyecto esta destinado a la obtencion de datos para la toma de decisiones relacionadas a inversiones, empleo, gobierno, negocios, comercio exterior, estudios de la ciencia del hombre, etc.
 
 # Fuente
