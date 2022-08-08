@@ -9,6 +9,7 @@ El proyecto consta de establecer datos porcentuales sobre turistas que visitaron
 * Motivo de la visita al pais
 * Linea de tiempo en la cual se realizo la visita al pais
 Por enumerar son algunos de los aspectos que se prentenden anaizar en el desarrollo, sin embargo, esta estapa del proyecyo se va a centrar en los primeros dos items mencionados.
+
 Los paises de destino que nos brinda los datos son:  
                                                     Brasil
                                                     Chile
