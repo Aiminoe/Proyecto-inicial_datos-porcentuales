@@ -1,9 +1,7 @@
 
 
 
-from ast import While
 import csv
-from tkinter import W
 
 #funcion para abrir archivo csv
 
@@ -14,55 +12,59 @@ def archivo_csv():
 
 #funcion para extender la lista de paises de origen y dar entrada a la seleccion del usuario
     
-def origen_1():
-        print('''Seleccione un pais de residencia: 
-            Brasil
-            Chile
-            Bolivia
-            Uruguay
-            Paraguay
-            Europa
-            Resto del mundo
-            EE.UU y Canada
-            Resto América
-            Para Finalizar indique FIN''')
-        residencia = input()
+def origen_1(opcion_1):
+        paises = {"1": "Brasil" , "2": "Chile", "3": "Bolivia" , "4": "Uruguay", "5": "Paraguay", "6": "Europa", "7": "Resto del mundo", "8": "EE.UU y Canada", "9": "Resto America", "10": "FIN"}   
+        print('''Ingrese el numero del pais de residencia que desea selecionar, o el numero para finalizar: 
+            1)Brasil
+            2)Chile
+            3)Bolivia
+            4)Uruguay
+            5)Paraguay
+            6)Europa
+            7)Resto del mundo
+            8)EE.UU y Canada
+            9)Resto America
+            10)FIN''')
+        
         print()
+        residencia = paises.get(opcion_1, '')
         return residencia
 
 #funcion para extender la lista de provincias de destino y dar entrada ala seleccion del usuario   
 
-def destino_1():
-        print(''' Selecione la provincia de destino
-            Buenos Aires
-            Caba
-            Cordoba
-            Catamarca
-            Chaco
-            Chubut
-            Corrientes
-            Entre Rios
-            Formosa
-            Jujuy
-            La Pampa
-            Formosa
-            La Rioja
-            Mendoza
-            Misiones
-            Neuquen
-            Rio Negro
-            Salta
-            San Juan
-            San Luis
-            Santa Cruz
-            Santa Fe
-            Santiago del Estero
-            Tierra del Fuego
-            Tucuman
+def destino_1(opcion_2):
+    provincias = {"1": "Buenos Aires", "2": "Caba", "3": "Cordoba", "4": "Catamarca", "5": "Chaco", "6": "Chubut", "7": "Corrientes", "8": "Entre Rios", "9": "Formosa", "10": "Jujuy", "11": "La Pampa", "12": "Formosa", "13": "La Rioja", "14": "Mendoza", "15": "Misiones", "16": "Neuquen", "17": "Rio Negro", "18": "Salta", "19": "San Juan", "20": "San Luis", "21": "Santa Cruz", "22": "Santa Fe", "23": "Santiago del Estero", "24": "Tierra del Fuego", "25": "Tucuman"}
+    print(''' Selecione el numero de la provincia de destino
+            1)Buenos Aires
+            2)Caba
+            3)Cordoba
+            4)Catamarca
+            5)Chaco
+            6)Chubut
+            7)Corrientes
+            8)Entre Rios
+            9)Formosa
+            10)Jujuy
+            11)La Pampa
+            12)Formosa
+            13)La Rioja
+            14)Mendoza
+            15)Misiones
+            16)Neuquen
+            17)Rio Negro
+            18)Salta
+            19)San Juan
+            20)San Luis
+            21)Santa Cruz
+            22)Santa Fe
+            23)Santiago del Estero
+            24)Tierra del Fuego
+            25)Tucuman
             ''')
-        destino = input()
-        print()
-        return destino
+
+    destino = provincias.get(opcion_2,'') 
+    print()
+    return destino
 
 
 
@@ -143,7 +145,7 @@ def promedio(destino, residencia):
         numero_2 = int(promedio_origen(residencia))
         promedio = int(numero_1 * 100) / int(numero_2)
         
-        print('''{}% es el promedio de turistas,cuyo pais de origen es {}, que visitaron la proviancia de {} 
+        print('''{}% es el promedio de turistas,cuyo pais de origen es {}, visitaron la proviancia de {} 
         desde el comienzo del año 2022 hasta el mes de Mayo \n'''.format(round(promedio,2), residencia,destino)) 
 
 
@@ -151,28 +153,45 @@ def promedio(destino, residencia):
 if __name__ == '__main__':
     print("Bienvenido")
     
-    lugar_origen = ''
+    opcion_1 = ''
+    opcion_2 = ''
     
-    while lugar_origen.upper() != 'FIN':
+    while opcion_1 != '10':
 
-        lugar_origen = origen_1()
+        lugar_origen = origen_1(opcion_1)
+        opcion_1 = input("Ingrese una opcion: ")
 
-        if lugar_origen.upper() != 'FIN':
-           
-            provincia_destino = destino_1()
+        if opcion_1.isdigit():
 
-            filtro_residencia((lugar_origen))
+            if opcion_1 != '10':
 
-            filtro_destino((provincia_destino),(lugar_origen))
+                provincia_destino = destino_1(opcion_2)
+                opcion_2 = input("Ingrese una opcion: ")
 
-            funcion_sumatoria((provincia_destino),(lugar_origen))
+                if opcion_2.isdigit():
+                    
 
-            promedio_origen(lugar_origen)
+                    filtro_residencia(lugar_origen)
 
-            promedio((provincia_destino),(lugar_origen))
+                    filtro_destino((provincia_destino),(lugar_origen))
+
+                    funcion_sumatoria((provincia_destino),(lugar_origen))
+
+                    promedio_origen(lugar_origen)
+
+                    promedio((provincia_destino),(lugar_origen))
+                else:
+                    print("La opcion ingresada no es valida, ingrese una correcta")
+                    provincia_destino = destino_1(opcion_2)          
+            else:
+                break
+        else:
+            print("La opcion ingresada no es valida, ingrese la opcion nuevamente")
+            
+
                       
 
-            print('Fin del programa.\n')    
+    print('Fin del programa.\n')    
     
             
             
