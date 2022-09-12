@@ -28,7 +28,8 @@ def origen_1():
         opcion_1 = input("Ingrese una opcion: ")
         print()
         residencia = paises.get(opcion_1, '')
-        return residencia
+        # HERNAN --> Acá tambien teronar opcion_1 para que lo pueda usar el main
+        return residencia, opcion_1
 
 #funcion para extender la lista de provincias de destino y dar entrada ala seleccion del usuario   
 
@@ -64,7 +65,8 @@ def destino_1():
     opcion_2 = input("Ingrese una opcion: ")
     destino = provincias.get(opcion_2,'') 
     print()
-    return destino
+    # HERNAN --> aca retornar tambien opcion_2 para que lo pueda usar el main
+    return destino, opcion_2
 
 
 
@@ -143,29 +145,36 @@ def promedio_origen(residencia):
 def promedio(destino, residencia):
         numero_1 = int(funcion_sumatoria(destino,residencia))
         numero_2 = int(promedio_origen(residencia))
-        promedio = int(numero_1 * 100) / int(numero_2)
-        
-        print('''{}% es el promedio de turistas,cuyo pais de origen es {}, visitaron la proviancia de {} 
-        desde el comienzo del año 2022 hasta el mes de Mayo \n'''.format(round(promedio,2), residencia,destino)) 
+        # HERNAN --> ojo que si numero_2 es cero explota todo!
+        if numero_2 != 0:
+            promedio = int(numero_1 * 100) / int(numero_2)
+            print('''{}% es el promedio de turistas,cuyo pais de origen es {}, visitaron la proviancia de {} 
+            desde el comienzo del año 2022 hasta el mes de Mayo \n'''.format(round(promedio,2), residencia,destino)) 
+        else:
+            print('No se encontro pais de residencia para realizar el promedio solicitado, intentelo nuevamente')
+            
 
 
 
 if __name__ == '__main__':
     print("Bienvenido")
-    
-    opcion_1 = ''
-    opcion_2 = ''
+
+    # Estas variables nunca se actualizan
+    #opcion_1 = ''
+    #opcion_2 = ''
     
     while opcion_1 != '10':
 
-        lugar_origen = origen_1()
+        # HERNAN --> Modiicar opcion_1 segun lo indicado por origen_1
+        lugar_origen, opcion_1 = origen_1()
         
 
         if opcion_1.isdigit():
 
             if opcion_1 != '10':
 
-                provincia_destino = destino_1()
+                # HERNAN --> Modificar opcion_2 segun lo indicado por destino_1
+                provincia_destino, opcion_2 = destino_1()
                 
 
                 if opcion_2.isdigit():
@@ -182,7 +191,8 @@ if __name__ == '__main__':
                     promedio((provincia_destino),(lugar_origen))
                 else:
                     print("La opcion ingresada no es valida, ingrese una correcta")
-                    provincia_destino = destino_1(opcion_2)          
+                    # HERNAN --> Modificar opcion_2 segun lo indicado por destino_1
+                    provincia_destino, opcion_2 = destino_1()          
             else:
                 break
         else:
